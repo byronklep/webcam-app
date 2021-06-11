@@ -32,7 +32,7 @@ const Webcam = ({ match }) => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data.result.webcams)
+        // console.log(response.data.result.webcams)
         setWebcams(response.data.result.webcams)
         setLoading(false)
       })
