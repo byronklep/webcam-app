@@ -4,6 +4,11 @@
   gap: 1rem;
 }
 
+.webcam-container {
+  display: flex;
+  flex-direction: row;
+}
+
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);

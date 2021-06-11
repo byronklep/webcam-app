@@ -18,7 +18,7 @@ const Webcam = ({ match }) => {
 
   useEffect(() => {
     setLoading(true)
-    console.log(match.params.id)
+    // console.log(match.params.id)
     const options = {
       method: 'GET',
       url: `https://webcamstravel.p.rapidapi.com/webcams/list/webcam=${match.params.id}`,
@@ -46,20 +46,28 @@ const Webcam = ({ match }) => {
   }
 
   return (
-    <div>
-      <Link to="/">
-        {' '}
-        <Button>Go back</Button>
-      </Link>
-
-      {console.log(webcams[0] ? webcams[0].title : null)}
+    <>
       <Container>
-        <Row>
-          <Col className="justify-content-lg-center">
-            {/* this.state.tutors[0] ? this.state.tutors[0].email : null */}
-            <h3>{webcams[0] ? webcams[0].title : null}</h3>
-            <h5>{webcams[0] ? webcams[0].status : null}</h5>
-            <Card style={{ width: '36rem' }}>
+        <Link to="/">
+          {' '}
+          <Button className="my-3" variant="light">
+            Go back
+          </Button>
+        </Link>
+
+        {/* {console.log(webcams[0] ? webcams[0].title : null)} */}
+
+        <Row className="">
+          <Col>
+            <div className="text-center">
+              <h3>{webcams[0] ? webcams[0].title : null}</h3>
+              <h5>{webcams[0] ? webcams[0].status : null}</h5>
+            </div>
+          </Col>
+        </Row>
+        <Row className="webcam-container">
+          <Col className="">
+            <Card>
               <Card.Img
                 variant="top"
                 src={webcams[0] ? webcams[0].image.current.preview : null}
@@ -68,7 +76,7 @@ const Webcam = ({ match }) => {
               <Card.Body>
                 <ListGroup variant="flush">
                   <ListGroupItem>
-                    {' '}
+                    <h3>Location</h3>
                     <h4>
                       {webcams[0] ? webcams[0].location.city : null},{' '}
                       {webcams[0] ? webcams[0].location.country : null}{' '}
@@ -76,9 +84,22 @@ const Webcam = ({ match }) => {
                     </h4>
                   </ListGroupItem>
                   <ListGroupItem>
-                    {' '}
+                    <h3>Region</h3>
                     <h4>{webcams[0] ? webcams[0].location.region : null}</h4>
                   </ListGroupItem>
+                </ListGroup>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={webcams[0] ? webcams[0].image.daylight.preview : null}
+              />
+              <Card.Text>Daylight</Card.Text>
+              <Card.Body>
+                <ListGroup variant="flush">
                   <ListGroupItem>
                     {' '}
                     <h4>
@@ -86,20 +107,22 @@ const Webcam = ({ match }) => {
                       {webcams[0] ? webcams[0].location.longitude : null}
                     </h4>
                   </ListGroupItem>
+                  <ListGroupItem>
+                    {' '}
+                    <a
+                      href={webcams[0] ? webcams[0].location.wikipedia : null}
+                      target="_blank"
+                      rel="noreferrer">
+                      {webcams[0] ? webcams[0].location.wikipedia : null}
+                    </a>
+                  </ListGroupItem>
                 </ListGroup>
               </Card.Body>
-            </Card>
-            <Card style={{ width: '36rem' }}>
-              <Card.Img
-                variant="top"
-                src={webcams[0] ? webcams[0].image.daylight.preview : null}
-              />
-              <Card.Text>Daylight</Card.Text>
             </Card>
           </Col>
         </Row>
       </Container>
-    </div>
+    </>
   )
 }
 
