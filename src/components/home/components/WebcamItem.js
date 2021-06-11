@@ -1,4 +1,5 @@
 import { Card, Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const WebcamItem = ({ webcam }) => {
   return (
@@ -6,9 +7,14 @@ const WebcamItem = ({ webcam }) => {
       <Card>
         <Card.Img variant="top" src={webcam.image.current.preview} />
         <Card.Body>
-          <Card.Title>{webcam.title}</Card.Title>
+          <LinkContainer to={`/webcam/${webcam.id}`}>
+            <Card.Title>{webcam.title}</Card.Title>
+          </LinkContainer>
+
           <Card.Text>{webcam.status}</Card.Text>
-          <Button variant="info">See more</Button>
+          <LinkContainer to={`/webcam/${webcam.id}`}>
+            <Button variant="info">See more</Button>
+          </LinkContainer>
         </Card.Body>
       </Card>
     </>
