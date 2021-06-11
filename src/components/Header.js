@@ -3,12 +3,12 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 const Header = () => {
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar className="mb-5" bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="/">Webcam App</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="ml-auto">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
