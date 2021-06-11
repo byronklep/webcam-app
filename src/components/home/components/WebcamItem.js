@@ -13,7 +13,7 @@ const WebcamItem = ({ webcam }) => {
 
           <Card.Text>{webcam.status}</Card.Text>
           <LinkContainer to={`/webcam/${webcam.id}`}>
-            <Button variant="info">See more</Button>
+            <Button variant="light">See more</Button>
           </LinkContainer>
         </Card.Body>
       </Card>
