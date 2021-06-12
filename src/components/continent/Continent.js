@@ -1,11 +1,5 @@
-const { default: DD } = require('./components/DD')
-
 const Continent = () => {
-  return (
-    <div>
-      <DD />
-    </div>
-  )
+  return <div></div>
 }
 
 export default Continent

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import WebcamItem from './WebcamItem'
 import { Spinner, Container, Row, Col } from 'react-bootstrap'
-
+import DD from './DD'
 
 const WebcamListContainer = () => {
   const [webcams, setWebcams] = useState([])
@@ -41,7 +41,11 @@ const WebcamListContainer = () => {
   return (
     <>
       <Container>
-       
+        <Row>
+          <Col>
+            <DD />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <div className="cards">

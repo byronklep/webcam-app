@@ -1,15 +1,21 @@
 import React from 'react'
 import Select from 'react-select'
 import axios from 'axios'
-
 import CContainer from './CContainer'
 import { Container } from 'react-bootstrap'
+import { withRouter, Redirect } from 'react-router-dom'
 
 class DD extends React.Component {
+  _isMounted = false
+
   state = {
     selectedOption: [],
     cData: [],
     loading: false,
+  }
+
+  componentDidMount() {
+    this._isMounted = true
   }
 
   handleChange = (selectedOption) => {
@@ -45,6 +51,18 @@ class DD extends React.Component {
     }
 
     filterWebcams()
+    // console.log(this.state.cData)
+    // this.props.history.push(`/webcams/${selectedOption.value}`)
+    // this.props.history.push({
+    //   pathname: `/webcams/${selectedOption.value}`,
+    //   state: { cData: this.state.cData },
+    // })
+    // console.log(this.props.history)
+    // this.props.history.push(`/webcams/${selectedOption.value}`)
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   render() {
@@ -64,20 +82,27 @@ class DD extends React.Component {
               { value: 'AS', label: 'Asia' },
               { value: 'EU', label: 'Europe' },
               { value: 'NA', label: 'North America' },
-              { value: 'OS', label: 'Oceania' },
+              // { value: 'OS', label: 'Oceania' },
               { value: 'SA', label: 'South America' },
             ]}
           />
-
-          <div className="cards">
+          {this.state.cData.length > 0 && (
+            <Redirect
+              to={{
+                pathname: `/webcams/${selectedOption.value}`,
+                state: { cData: this.state.cData },
+              }}
+            />
+          )}
+          {/* <div className="cards">
             {this.state.cData.map((cweb, id) => (
               <CContainer cweb={cweb} id={id} />
             ))}
-          </div>
+          </div> */}
         </Container>
       </>
     )
   }
 }
 
-export default DD
+export default withRouter(DD)
