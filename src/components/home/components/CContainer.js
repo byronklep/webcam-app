@@ -1,14 +1,21 @@
 import React from 'react'
 import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router-dom'
+import DD from './DD'
 
 const CContainer = ({ location }) => {
   console.log(location.state.cData)
   const dataItems = location.state.cData
+  // const selectedItems = location
+  // console.log(location.pathname)
   return (
     <>
       <Container>
+        <Row>
+          <Col>
+            <DD />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <Link to="/">
@@ -23,16 +30,18 @@ const CContainer = ({ location }) => {
             <div className="cards">
               {dataItems.map((cweb) => (
                 <Card key={cweb.id}>
-                  <Card.Img variant="top" src={cweb.image.current.preview} />
+                  <Link to={`/webcam/${cweb.id}`}>
+                    <Card.Img variant="top" src={cweb.image.current.preview} />
+                  </Link>
                   <Card.Body>
-                    <LinkContainer to={`/webcam/${cweb.id}`}>
+                    <Link to={`/webcam/${cweb.id}`}>
                       <Card.Title>{cweb.title}</Card.Title>
-                    </LinkContainer>
+                    </Link>
 
                     <Card.Text>{cweb.status}</Card.Text>
-                    <LinkContainer to={`/webcam/${cweb.id}`}>
+                    <Link to={`/webcam/${cweb.id}`}>
                       <Button variant="light">See more</Button>
-                    </LinkContainer>
+                    </Link>
                   </Card.Body>
                 </Card>
               ))}

@@ -16,6 +16,7 @@ function App() {
         render={(props) => <WebcamPage {...props} />}
       />
       <Route path="/webcams/:selectedOption" component={CContainer} exact />
+      <Route path="/page/:pageNumber" component={HomePage} />
       <Route path="/" component={HomePage} exact />
       {/* <Route path="/continents" component={ContinentPage} exact /> */}
     </Router>

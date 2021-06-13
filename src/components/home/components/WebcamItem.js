@@ -1,20 +1,22 @@
 import { Card, Button } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 const WebcamItem = ({ webcam }) => {
   return (
     <>
       <Card>
-        <Card.Img variant="top" src={webcam.image.current.preview} />
+        <Link to={`/webcam/${webcam.id}`}>
+          <Card.Img variant="top" src={webcam.image.current.preview} />
+        </Link>
         <Card.Body>
-          <LinkContainer to={`/webcam/${webcam.id}`}>
+          <Link to={`/webcam/${webcam.id}`}>
             <Card.Title>{webcam.title}</Card.Title>
-          </LinkContainer>
+          </Link>
 
           <Card.Text>{webcam.status}</Card.Text>
-          <LinkContainer to={`/webcam/${webcam.id}`}>
+          <Link to={`/webcam/${webcam.id}`}>
             <Button variant="light">See more</Button>
-          </LinkContainer>
+          </Link>
         </Card.Body>
       </Card>
     </>

@@ -1,7 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
 import axios from 'axios'
-import CContainer from './CContainer'
 import { Container } from 'react-bootstrap'
 import { withRouter, Redirect } from 'react-router-dom'
 
@@ -62,7 +61,10 @@ class DD extends React.Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state, callback) => {
+      return
+    }
   }
 
   render() {
