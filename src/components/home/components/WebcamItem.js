@@ -1,4 +1,4 @@
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, ListGroupItem, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const WebcamItem = ({ webcam }) => {
@@ -12,8 +12,17 @@ const WebcamItem = ({ webcam }) => {
           <Link to={`/webcam/${webcam.id}`}>
             <Card.Title>{webcam.title}</Card.Title>
           </Link>
+          <ListGroup variant="flush">
+            <ListGroupItem>
+              <h6>
+                {webcam.location.city}, {webcam.location.country}
+              </h6>
+            </ListGroupItem>
+            <ListGroupItem>
+              <Card.Text>{webcam.status}</Card.Text>
+            </ListGroupItem>
+          </ListGroup>
 
-          <Card.Text>{webcam.status}</Card.Text>
           <Link to={`/webcam/${webcam.id}`}>
             <Button variant="light">See more</Button>
           </Link>
