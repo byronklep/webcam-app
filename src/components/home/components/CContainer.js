@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import DD from './DD'
 
 const CContainer = ({ location }) => {
-  console.log(location.state.cData)
+  console.log(location.state.cData[0].location.continent)
   const dataItems = location.state.cData
   // const selectedItems = location
   // console.log(location.pathname)
@@ -27,23 +27,31 @@ const CContainer = ({ location }) => {
         </Row>
         <Row>
           <Col>
+            <h1 className="text-center mb-5">
+              {location.state.cData[0].location.continent}
+            </h1>
             <div className="cards">
               {dataItems.map((cweb) => (
-                <Card key={cweb.id}>
-                  <Link to={`/webcam/${cweb.id}`}>
-                    <Card.Img variant="top" src={cweb.image.current.preview} />
-                  </Link>
-                  <Card.Body>
+                <>
+                  <Card key={cweb.id}>
                     <Link to={`/webcam/${cweb.id}`}>
-                      <Card.Title>{cweb.title}</Card.Title>
+                      <Card.Img
+                        variant="top"
+                        src={cweb.image.current.preview}
+                      />
                     </Link>
+                    <Card.Body>
+                      <Link to={`/webcam/${cweb.id}`}>
+                        <Card.Title>{cweb.title}</Card.Title>
+                      </Link>
 
-                    <Card.Text>{cweb.status}</Card.Text>
-                    <Link to={`/webcam/${cweb.id}`}>
-                      <Button variant="light">See more</Button>
-                    </Link>
-                  </Card.Body>
-                </Card>
+                      <Card.Text>{cweb.status}</Card.Text>
+                      <Link to={`/webcam/${cweb.id}`}>
+                        <Button variant="light">See more</Button>
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </>
               ))}
             </div>
           </Col>
