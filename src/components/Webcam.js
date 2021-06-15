@@ -61,7 +61,9 @@ const Webcam = ({ match }) => {
           <Col>
             <div className="text-center">
               <h3>{webcams[0] ? webcams[0].title : null}</h3>
-              <h5>{webcams[0] ? webcams[0].status : null}</h5>
+              <h5 className="text-uppercase">
+                {webcams[0] ? webcams[0].status : null}
+              </h5>
             </div>
           </Col>
         </Row>
@@ -72,7 +74,9 @@ const Webcam = ({ match }) => {
                 variant="top"
                 src={webcams[0] ? webcams[0].image.current.preview : null}
               />
-              <Card.Text>Current</Card.Text>
+              <Card.Text>
+                <h4 className="text-center text-uppercase my-4">Current</h4>
+              </Card.Text>
               <Card.Body>
                 <ListGroup variant="flush">
                   <ListGroupItem>
@@ -84,7 +88,7 @@ const Webcam = ({ match }) => {
                     </h4>
                   </ListGroupItem>
                   <ListGroupItem>
-                    <h3>Region</h3>
+                    <h3 className="my-2">Region</h3>
                     <h4>{webcams[0] ? webcams[0].location.region : null}</h4>
                   </ListGroupItem>
                 </ListGroup>
@@ -97,9 +101,13 @@ const Webcam = ({ match }) => {
                 variant="top"
                 src={webcams[0] ? webcams[0].image.daylight.preview : null}
               />
-              <Card.Text>Daylight</Card.Text>
+              <Card.Text>
+                {' '}
+                <h4 className="text-center text-uppercase my-4">Daylight</h4>
+              </Card.Text>
               <Card.Body>
                 <ListGroup variant="flush">
+                  <h3>Longitude / Latitude</h3>
                   <ListGroupItem>
                     {' '}
                     <h4>
@@ -108,9 +116,10 @@ const Webcam = ({ match }) => {
                     </h4>
                   </ListGroupItem>
                   <ListGroupItem>
-                    {' '}
+                    <h4 className="my-3">Links</h4>
                     <a
                       href={webcams[0] ? webcams[0].location.wikipedia : null}
+                      className="my-3"
                       target="_blank"
                       rel="noreferrer">
                       {webcams[0] ? webcams[0].location.wikipedia : null}
