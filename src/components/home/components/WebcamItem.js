@@ -11,7 +11,7 @@ const WebcamItem = ({ webcam }) => {
         <Card.Body>
           <Link to={`/webcam/${webcam.id}`}>
             <Card.Title>
-              <span className="title-font">{webcam.title}</span>
+              <span className="card-link-font">{webcam.title}</span>
             </Card.Title>
           </Link>
           <ListGroup variant="flush">

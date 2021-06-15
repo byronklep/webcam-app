@@ -4,13 +4,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import WebcamPage from './pages/WebcamPage'
 import CContainer from './components/home/components/CContainer'
+import AboutPage from './pages/AboutPage'
 // import ContinentPage from './pages/ContinentPage'
 
 function App() {
   return (
     <Router>
       <Header />
-
+      <Route path="/about" component={AboutPage} exact />
       <Route
         path={'/webcam/:id'}
         render={(props) => <WebcamPage {...props} />}

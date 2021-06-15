@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Container } from 'react-bootstrap'
 import { withRouter, Redirect } from 'react-router-dom'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 class DD extends React.Component {
   _isMounted = false
 
@@ -29,8 +31,7 @@ class DD extends React.Component {
         url: `https://webcamstravel.p.rapidapi.com/webcams/list/continent=${selectedOption.value}`,
         params: { lang: 'en', show: 'webcams:image,location' },
         headers: {
-          'x-rapidapi-key':
-            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
           'x-rapidapi-host': 'webcamstravel.p.rapidapi.com',
         },
       }
@@ -73,7 +74,7 @@ class DD extends React.Component {
 
     return (
       <>
-        <Container>
+        <Container className="my-5">
           <Select
             name="form-field-name"
             value={value} // so here the default value of one will be set then updates during the on change event

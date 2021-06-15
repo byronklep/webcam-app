@@ -8,8 +8,24 @@ a:link {
   text-decoration: none;
 }
 
+body {
+  margin-bottom: 150px;
+}
+
+.logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6em;
+  font-weight: 600;
+}
 .title-font {
   font-family: 'Dancing Script', cursive;
+  font-size: 2.6em;
+  font-weight: 800;
+}
+.card-link-font {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3em;
+  font-weight: 800;
 }
 
 .cards {

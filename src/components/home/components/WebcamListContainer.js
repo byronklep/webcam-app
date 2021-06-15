@@ -4,6 +4,8 @@ import WebcamItem from './WebcamItem'
 import { Spinner, Container, Row, Col } from 'react-bootstrap'
 import DD from './DD'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 const WebcamListContainer = () => {
   const [webcams, setWebcams] = useState([])
   const [loading, setLoading] = useState(false)
@@ -15,7 +17,7 @@ const WebcamListContainer = () => {
       url: 'https://webcamstravel.p.rapidapi.com/webcams/list/limit=25,0',
       params: { lang: 'en', show: 'webcams:image,location' },
       headers: {
-        'x-rapidapi-key': 'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+        'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
         'x-rapidapi-host': 'webcamstravel.p.rapidapi.com',
       },
     }

@@ -51,7 +51,7 @@ const CContainer = ({ location }) => {
                     <Card.Body>
                       <Link to={`/webcam/${cweb.id}`}>
                         <Card.Title>
-                          <span className="title-font">{cweb.title}</span>
+                          <span className="card-link-font">{cweb.title}</span>
                         </Card.Title>
                       </Link>
                       <ListGroup variant="flush">

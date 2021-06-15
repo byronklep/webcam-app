@@ -12,6 +12,8 @@ import {
   Button,
 } from 'react-bootstrap'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 const Webcam = ({ match }) => {
   const [webcams, setWebcams] = useState([])
   const [loading, setLoading] = useState(false)
@@ -24,7 +26,7 @@ const Webcam = ({ match }) => {
       url: `https://webcamstravel.p.rapidapi.com/webcams/list/webcam=${match.params.id}`,
       params: { lang: 'en', show: 'webcams:image,location' },
       headers: {
-        'x-rapidapi-key': 'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+        'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
         'x-rapidapi-host': 'webcamstravel.p.rapidapi.com',
       },
     }
@@ -60,10 +62,10 @@ const Webcam = ({ match }) => {
         <Row className="">
           <Col>
             <div className="text-center">
-              <h3 className="title-font">
+              <h3 className="title-font my-3">
                 {webcams[0] ? webcams[0].title : null}
               </h3>
-              <h5 className="text-uppercase">
+              <h5 className="text-uppercase  my-3">
                 {webcams[0] ? webcams[0].status : null}
               </h5>
             </div>
@@ -77,7 +79,7 @@ const Webcam = ({ match }) => {
                 src={webcams[0] ? webcams[0].image.current.preview : null}
               />
               <Card.Text>
-                <h4 className="text-center text-uppercase my-4">Current</h4>
+                <h4 className="text-center text-uppercase my-4">(Current)</h4>
               </Card.Text>
               <Card.Body>
                 <ListGroup variant="flush">
@@ -105,7 +107,7 @@ const Webcam = ({ match }) => {
               />
               <Card.Text>
                 {' '}
-                <h4 className="text-center text-uppercase my-4">Daylight</h4>
+                <h4 className="text-center text-uppercase my-4">(Daylight)</h4>
               </Card.Text>
               <Card.Body>
                 <ListGroup variant="flush">
