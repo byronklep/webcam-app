@@ -60,7 +60,9 @@ const Webcam = ({ match }) => {
         <Row className="">
           <Col>
             <div className="text-center">
-              <h3>{webcams[0] ? webcams[0].title : null}</h3>
+              <h3 className="title-font">
+                {webcams[0] ? webcams[0].title : null}
+              </h3>
               <h5 className="text-uppercase">
                 {webcams[0] ? webcams[0].status : null}
               </h5>

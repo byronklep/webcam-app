@@ -1,5 +1,13 @@
 import React from 'react'
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
+import {
+  Card,
+  Button,
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  ListGroupItem,
+} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import DD from './DD'
 
@@ -27,7 +35,7 @@ const CContainer = ({ location }) => {
         </Row>
         <Row>
           <Col>
-            <h1 className="text-center mb-5">
+            <h1 className="text-center mb-5 title-font">
               {location.state.cData[0].location.continent}
             </h1>
             <div className="cards">
@@ -42,10 +50,20 @@ const CContainer = ({ location }) => {
                     </Link>
                     <Card.Body>
                       <Link to={`/webcam/${cweb.id}`}>
-                        <Card.Title>{cweb.title}</Card.Title>
+                        <Card.Title>
+                          <span className="title-font">{cweb.title}</span>
+                        </Card.Title>
                       </Link>
-
-                      <Card.Text>{cweb.status}</Card.Text>
+                      <ListGroup variant="flush">
+                        <ListGroupItem>
+                          <h6>
+                            {cweb.location.city}, {cweb.location.country}
+                          </h6>
+                        </ListGroupItem>
+                        <ListGroupItem>
+                          <Card.Text>{cweb.status}</Card.Text>
+                        </ListGroupItem>
+                      </ListGroup>
                       <Link to={`/webcam/${cweb.id}`}>
                         <Button variant="light">See more</Button>
                       </Link>
